@@ -12,7 +12,7 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        comment_body: {
+        comment_description: {
             type: DataTypes.STRING,
         },
         date_created: {
@@ -20,20 +20,24 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            }
-        },
         blog_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'blog',
                 key: 'id',
+                onDelete: 'CASCADE'
             }
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+                onDelete: 'CASCADE'
+            }
+        },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
