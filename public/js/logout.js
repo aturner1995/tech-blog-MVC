@@ -1,8 +1,3 @@
-// Collect values from the logout button
-document
-    .querySelector('#logout')
-    .addEventListener('click', logout);
-
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
         method: 'POST',
@@ -15,3 +10,6 @@ const logout = async () => {
         alert(response.statusText);
       }
 }
+
+// Collect values from the logout button
+document.querySelector('#logout').addEventListener('click', logout);
