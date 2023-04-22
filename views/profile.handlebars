@@ -9,23 +9,22 @@
     <h3>Create a New Blog:</h3>
 
     <form class="form new-blog-form">
-      <div class="form-group">
+      <div class="form-group py-2">
         <label for="blog-title">Title:</label>
         <input class="form-input" type="text" id="blog-title" name="blog-title" />
       </div>
-      <div class="form-group">
+      <div class="form-group py-2">
         <label for="blog-body">Body:</label>
         <input class="form-input" type="text" id="blog-body" name="blog-body" />
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create Blog</button>
+      <div class="form-group d-flex">
+        <button type="submit" class="btn btn-primary my-3">Create Blog</button>
       </div>
     </form>
   </div>
 
-  {{#if blogs.length}}
   <div class="col-md-6 blog-list">
-    <h3>Current Blogs:</h3>
+    <h3>My Blogs:</h3>
 
     {{#each blogs as |blog|}}
     <div class="row mb-2">
@@ -38,7 +37,6 @@
     </div>
     {{/each}}
   </div>
-  {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="/js/profile.js"></script>

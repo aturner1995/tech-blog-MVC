@@ -1,0 +1,32 @@
+.nav-logo {
+    height: 75px;
+    width: auto;
+}
+
+.card-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.commentCont {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.commentCont p {
+    margin-bottom: 5px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title a:hover {
+    text-decoration: none;
+}
+
+.card-text {
+    margin-top: 1rem;
+}
