@@ -33,10 +33,15 @@
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+        <h4><a href="/blog/{{blog.id}}" class="blog-title" data-id="{{blog.id}}">{{blog.title}}</a></h4>
+        <p data-id="{{blog.id}}" class="blog-body">{{blog.description}}</p>
+        <div class="editBlog" data-id="{{blog.id}}"></div>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      <div class="col-md-2 edit-btn">
+        <button class="btn btn-sm btn-info edit-btn" data-id="{{blog.id}}">EDIT</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-sm btn-danger delete-btn" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
