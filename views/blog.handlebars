@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header text-center">
+        <div class="card-header">
           <h2>{{title}}</h2>
           <p>{{description}}</p>
           <p class="text-muted">Created by {{user.username}} on {{format_date date_created}}</p>
@@ -14,13 +14,13 @@
               <div class="col">
                 <input id='comment-description' type="text" class="form-control" placeholder="Add a comment...">
               </div>
-              <div class="col-auto">
+              <div class="col-auto text-center py-2">
                 <button class="btn btn-primary" type="submit">Add Comment</button>
               </div>
             </div>
           </form>
           {{/if}}
-          <h2 class="text-center">Comments</h2>
+          <h2>Comments</h2>
           {{#each comments as |comment|}}
           <div class="commentCont mb-3">
             <p class="mb-0">{{comment.comment_description}}</p>
