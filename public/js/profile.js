@@ -14,6 +14,9 @@ const newBlogHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/profile');
         }
+        else if (response.status === 403) {
+            document.location = '/login';
+        }
         else {
             alert('Failed to create blog');
         }
@@ -21,14 +24,19 @@ const newBlogHandler = async (event) => {
 };
 
 const deleteButtonHandler = async (event) => {
+
     if (event.target.classList.contains('delete-btn')) {
         const id = event.target.getAttribute('data-id');
         const response = await fetch(`/api/blogs/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
             document.location.replace('/profile');
+        }
+        else if (response.status === 403) {
+            document.location = '/login';
         }
         else {
             alert('Failed to delete blog');
@@ -37,6 +45,7 @@ const deleteButtonHandler = async (event) => {
 };
 
 const editButtonHandler = async (event) => {
+
     if (event.target.classList.contains('edit-btn')) {
         const id = event.target.getAttribute('data-id');
 
@@ -87,6 +96,9 @@ const editButtonHandler = async (event) => {
 
                     if (response.ok) {
                         document.location.replace('/profile');
+                    }
+                    else if (response.status === 403) {
+                        document.location = '/login';
                     }
                     else {
                         alert('Failed to update blog');

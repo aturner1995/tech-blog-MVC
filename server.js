@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 // Create the session and associate to the storage above
 const sess = {
     secret: 'Super secret secret',
-    cookie: {},
+    cookie: { maxAge: 600000 },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
