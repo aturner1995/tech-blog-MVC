@@ -30,13 +30,11 @@ router.get('/blog/:id', async (req,res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username']
                 },
                 {
                     model: Comment,
                     include: {
                         model: User,
-                        attributes: ['username']
                     }
                 }
             ]
@@ -44,7 +42,8 @@ router.get('/blog/:id', async (req,res) => {
         const blog = blogData.get({ plain: true });
         res.render('blog', {
             ...blog,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     }
     catch(err) {

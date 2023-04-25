@@ -10,19 +10,40 @@ const commentHandler = async (event) => {
             body: JSON.stringify({ blog_id, comment_description }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response);
         if (response.ok) {
             document.location.reload();
         }
         else if (response.status === 403) {
-            console.log("i AM HERE")
             document.location = '/login'
         }
         else {
             alert(response.statusText);
         }
     }
-}
+};
+
+const deleteCommentHandler = async (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('delete-comment')) {
+        const commentId = event.target.getAttribute('data-id');
+
+        const response = await fetch(`/api/comments/${commentId}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.reload();
+        }
+        else if (response.status === 403) {
+            document.location = '/login'
+        }
+        else {
+            alert(response.statusText);
+        }
+    }
+};
 
 
 document.querySelector('.new-comment-form').addEventListener('submit', commentHandler);
+document.querySelector('.comments').addEventListener('click', deleteCommentHandler);
